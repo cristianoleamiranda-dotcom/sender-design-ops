@@ -52,3 +52,7 @@ C. Micro-interacción VFO: el dial sintoniza bandas con audio-less tick visual y
 3. SOBRECARGA: tarjetas .cap/.ccell/.esp-panels/.fam-grid pasan a transparentes con filetes (regla editorial: aire + líneas, no cajas); .pstack vidrio .5+blur6.
 4. FONDOS/HEROE: back-film opacity .34→.55 y shade radial aligerado → el desarme SE VE bajo secciones al 30-42%; hero deja de ser foto quieta: ambient-loop playbackRate .5 SIEMPRE moviéndose + rate sube con velocidad de scroll (scrub seek solo con flechas); parallax yPercent ±7 en imgs de .cap-media/.slide-media; skew del marquee por velocidad de lenis.
 5-7. Herramientas/flujo/refs: ver respuesta en chat + fila 42 del kit.
+
+## 7. ADDENDUM v1.6 — RAIZ DEL "NADA CAMBIA" EN EL DISPOSITIVO DEL USUARIO
+Mensaje 7-puntos repetido idéntico = el device nunca ejecutó el motion. Diagnóstico: gsap/ScrollTrigger/Lenis servidos desde jsdelivr CDN; si el Chrome móvil (lite mode/ahorro/red/85 pestañas) no los resuelve, `gsap` queda undefined y app.js muere → videos en primer frame ("fondos fijos"), sin reveals, sin scrub: EXACTAMENTE los síntomas 3 y 4.
+Fix v1.6 (db111d5): (a) librerías AUTOHOSPEDADAS en assets/vendor/ (mismo origen que la página: si la página carga, el motion carga); (b) autoplay+loop NATIVO en #film, #back-film-v, #cover-film, prop-rapanui → movimiento garantizado incluso con JS totalmente muerto; (c) <noscript> fallback que deja contenido visible y oculta loader. Verificado: vendor 200 (72.2/43.4/12.8 KB), 0 refs CDN, 4 autoplays, BUILD 1.6.
