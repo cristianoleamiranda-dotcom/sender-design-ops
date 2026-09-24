@@ -64,3 +64,14 @@ Implementado (b109a2b, BUILD 1.7, ?v=17):
 - RESPIRO EDITORIAL (no recarga): overlays .sec .48/.22/.52 (antes .62/.30/.66), back-film .55→.52 + shade .74→.62, back-shade 20% a mitad, caps gap +22-44px, cap-media radius 14 + sombra + hover scale 1.04. Tarjetas siguen transparentes (v1.5) para no reintroducir solidez.
 - BLANCO/AZUL PROTAGÓNICO manteniendo cine oscuro: hero-float card blanca pura + tag azul, hero-title em/todos los kickers y dashes pasan a --ice (#8cc8dc tint oficial), #nosotros pasa a .light (fondo #f6f8fb, texto #0d1526/42506a, h2 em azul, pull/points azules) — respiro luminoso en medio del documento, como keynote Apple (producto blanco sobre oscuro).
 Verificado: hero-float 1, sec light 1, ?v17 x2, float-card 3, pin 1, BUILD 1.7.
+
+## 9. ADDENDUM v1.8 — TUS 6 VIDEOS INTEGRADOS (hero 360 + desarme scroll)
+Usuario envía 6 mp4 (01_360 2.2M 1280x720, 02_animac 2.6M, 03_lv 43M 4K60 → optimizado 8.2M 720p24, 04_950 1.9M vertical, 05_pure1 3.9M 720x1280 exploded, 06_pure2 10M vertical tower). Collage confirma: 01 levitando sobre plataforma, 05 exploded mid, 06 intact, 03 smoke.
+Integración (edf7e22, BUILD 1.8, ?v=19):
+- #film (hero full-bleed) = hero-smoke.mp4 (03 720p, humo sobre negro, atmosférico)
+- .hero-float video = hero-360.mp4 (01, 360° loop sobre card blanca, autoplay)
+- #back-film-v (global desarme scroll) = desarme-exploded.mp4 (05, torre azul que en mid explota — el "radio se desarma" al scrollear, scrub global 0→max)
+- #cover-film (catálogo) = tower-seamless.mp4 (06, torre intacta seamless)
+- Posters optimizados 51/23/68/61KB. Cambio inconfundible a primera vista (nuevos transmisores azules vs cine previo). Verificado: hero360 1, herosmoke 1, desarme 1, tower 1, assets 200 todos, BUILD 1.8.
+Cache: si no se ve, es caché — forzar ?v=11 incógnito; prod ya en 1.8.
+
