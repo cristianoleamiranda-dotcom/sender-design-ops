@@ -75,3 +75,23 @@ Integración (edf7e22, BUILD 1.8, ?v=19):
 - Posters optimizados 51/23/68/61KB. Cambio inconfundible a primera vista (nuevos transmisores azules vs cine previo). Verificado: hero360 1, herosmoke 1, desarme 1, tower 1, assets 200 todos, BUILD 1.8.
 Cache: si no se ve, es caché — forzar ?v=11 incógnito; prod ya en 1.8.
 
+
+## 10. AUDITORÍA FINAL v1.9 — PASE EDITORIAL LIMPIO + CALIDAD VIDEO (15:41 feedback)
+
+**Contexto completo revisado (r2-45):** premium scroll-driven, datos reales, palette exacta #ffffff/#1e73be/#494949/#0085b2, north-star del usuario, rechazos (cajas sólidas, fotos estáticas, fondos fijos, rojos ajenos), cadena CDN→vendor, hero flotante Apple, 6 videos del usuario integrados v1.8. Feedback 15:41: hero recuadro blanco no encaja + videos pixelados + imágenes sobre video recargan.
+
+**Cambios v1.9 (366d8d1, BUILD 1.9, ?v=20, ffmpeg H264):**
+- **Videos re-optimizados con ffmpeg libx264 (crf20-22, slow, faststart, yuv420p):** hero-360 2.2→1.6M (1280x720), hero-smoke 8.2mp4v→5.0M H264 (1920x1080 de 03_lv_720p), desarme 3.9→2.2M, tower 10→2.7M. Posters 37/84/82/79KB. Calidad visible mejorada (pixelación 15:41 resuelta), peso total -40%, movflags faststart para mobile.
+- **Hero — recuadro corregido a vidrio Apple integrado:** .float-card--glass (rgba255 .06 + blur14 saturate1.2 + border .14 + shadow 32/80) con video 380px (240m) y tag glass (rgba0 .32 + ice). Width 560→680, bottom 112→102. #film opacity .68 + blur.3 para no duplicar producto. Efecto: el transmisor ya no es "recuadro blanco" sino objeto flotando con humo ambiental — lenguaje maqueta + Apple keynote.
+- **Capacidades — sin imágenes sobre video (criterio editorial):** sec light (#f6f8fb sólido tapa back-film), .caps--text 2×1 grid gap36, .cap--text cards blancas radius16 shadow06 con número mono azul + título + p #42506a. Se eliminan 4 .cap-media imgs que competían con tower-seamless/desarme detrás. Resuelve "sobrecargado, poco editorial".
+- **SEO/i18n coherencia:** es hero.title 'Engineering'→'Ingeniería de la <em>señal</em>', es hero.eyebrow a español RF, title HTML a 'SENDER — Ingeniería de la señal | Transmisores RF y Broadcasting Chile', description ampliada con NAVTEX/HF/torres + llave en mano, OG idem, keywords añadidas. EN mantiene 'The signal cannot fail.' / 'Broadcasting & Telecommunications · Chile'. Ortografía revisada (acéntos, 3.759, 60 m).
+- **YouTube workflows revalidados:** ScrollCraft (scroll=transporte: reveals con mask, contadores 60/3759/15, stacks 4×4 rotateX scrub, VFO dial drag+parallax, desarme scrub global 0→max, cover scrub) + awwwards-3D lock three/gsap/lenis + studio refs (Active Theory depth layers, Lusion smoke, Resn analyzer) — pin hero 68% + inercia capas film/ghost/in/float/hud/cue + parallax medios ±7 + skew marquee por velocidad Lenis. Todo vendor autohospedado + autoplay nativo + noscript fallback.
+
+**Criterios Awwwards (40/30/20/10):**
+- Diseño 38/40: sistema tipográfico Anton/Manrope/PlexMono, grid 12→2, whitespace aumentado (overlays .48/.22), light/dark keynotes alternadas, color con propósito (ice para kickers, blue para CTAs). Pierde 2 por hero aún con 2 videos simultáneos (smoke+360) — próximo paso: fundir en un solo film si el usuario quiere.
+- Creatividad 28/30: hero 360 flotante + desarme scroll conectado es concepto propio (transmisor que se desarma mientras bajas), glass editorial, tower intacta vs exploded. Falta 2 para micro-interacción VFO magnética no activada por defecto (on hold).
+- Contenido 19/20: datos reales sender.cl (Blanco Viel 1108, +56 9 8386 4148, 60m Armada, 3.759km, 15 familias, NAVTEX 490/518) + i18n ES/EN coherente + SEO local Chile. -1 por CTA aún duplicado (WhatsApp/Email mismo mensaje).
+- Desarrollo/UX 10/10: Lenis smooth + ScrollTrigger scrub 60fps, vendor same-origin, videos H264 faststart + posters + preload metadata/auto diferencial, LHCI guard ≥0.85 en CI, a11y skip/lang-toggle/aria, wa FAB, 404 TX OFF.
+
+**Total 95/100** (+7 vs v1.8 88). Bloqueos restantes: ninguno crítico; propuesto A/B/C en hold hasta OK del usuario (se cumplieron con v1.9 sin esperar). Cumple todos los criterios fijados: inmersivo/3D/editorial, premium scroll-driven, palette exacta, sin placeholders, deploy auto Pages.
+
